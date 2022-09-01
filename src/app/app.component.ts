@@ -42,12 +42,36 @@ export class AppComponent {
 		searchTerm = searchTerm.toLowerCase();
 		for(let i=0; i < this.sourceList.length; i++) {
 			let name = this.sourceList[i].name.toLowerCase();
-			if (name.indexOf(searchTerm) >= 0) {
-				matchingSatellites.push(this.sourceList[i]);
+			let type = this.sourceList[i].type.toLowerCase();
+			let launchDate = this.sourceList[i].launchDate.toLowerCase();
+			let orbitType = this.sourceList[i].orbitType.toLowerCase();
+			let operational = String(this.sourceList[i].operational).toLowerCase();
+			if (name.includes(searchTerm)) {
+				if (!matchingSatellites.includes(this.sourceList[i])){
+					matchingSatellites.push(this.sourceList[i]);
+				}
+			} if (type.includes(searchTerm)) {
+				if (!matchingSatellites.includes(this.sourceList[i])){
+					matchingSatellites.push(this.sourceList[i]);
+				}
+			}if (launchDate.includes(searchTerm)) {
+				if (!matchingSatellites.includes(this.sourceList[i])){
+					matchingSatellites.push(this.sourceList[i]);
+				}
+			}if (orbitType.includes(searchTerm)) {
+				if (!matchingSatellites.includes(this.sourceList[i])){
+					matchingSatellites.push(this.sourceList[i]);
+				}
+			}if (operational.includes(searchTerm)) {
+				if (!matchingSatellites.includes(this.sourceList[i])){
+					matchingSatellites.push(this.sourceList[i]);
+				}
 			}
 		}
-		// assign this.displayList to be the array of matching satellites
-		// this will cause Angular to re-make the table, but now only containing matches
+		
+
+
+
 		this.displayList = matchingSatellites;
 	}
 
